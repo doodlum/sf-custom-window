@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.21)
 
 # info
 project(
-	Plugin
+	CustomWindow
 	VERSION 1.0.0
 	LANGUAGES CXX
 )
@@ -40,6 +40,7 @@ source_group(
 find_package(spdlog CONFIG REQUIRED)
 find_dependency_path(DKUtil include/DKUtil/Logger.hpp)
 find_dependency_path(CommonLibSF CommonLibSF/include/SFSE/SFSE.h)
+find_path(SIMPLEINI_INCLUDE_DIRS "ConvertUTF.c")
 
 # cmake target
 # runtime
@@ -60,6 +61,7 @@ target_include_directories(
 		${CMAKE_CURRENT_BINARY_DIR}/include
 		${CMAKE_CURRENT_SOURCE_DIR}/include
 		${CMAKE_CURRENT_SOURCE_DIR}/src
+		${SIMPLEINI_INCLUDE_DIRS}
 )
 
 # linkage
